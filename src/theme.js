@@ -1,0 +1,8 @@
+export const THEME = {
+	MAIN_COLOR: "#00fa9a",
+	DANGER_COLOR: "#009bce",
+	BLUE_COLOR: "#00fa9a",
+	PADDING_HORIZONTAL: 30,
+	PADDING_VERTICAL: 40,
+
+}
