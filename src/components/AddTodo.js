@@ -2,14 +2,24 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert, Keyboard  } from 'react-native';
 import { THEME } from '../theme';
 import { MaterialIcons } from '@expo/vector-icons';
-
+import { Fire } from '../config'
+ 
 
 export const AddTodo = ({onSubmit}) => {
 	const [value, setValue] = useState("")
 
 	const pressHandler = () => {
 		if (value.trim()) {
-		 onSubmit(value)
+			Fire.database()
+				.ref('notes/')
+				.push({content: value})
+				.then(() => {
+					 alert('success') 
+					})
+				.catch(err => { 
+					alert('error save') 
+				})
+		//  onSubmit(value)
 		 setValue("")
 		 Keyboard.dismiss()
 	 } else {
